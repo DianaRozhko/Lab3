@@ -1,0 +1,12 @@
+Source: debian
+Section: misc
+Priority: optional
+Maintainer: DianaRozhko rozhko.diana06@gmail.com
+Build-Depends: debhelper-compat (= 12), autotools-dev, autoconf, automake
+Standards-Version: 4.5.0
+Homepage: http://example.com
+
+Package: debian
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Short description of debian package
