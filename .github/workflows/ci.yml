@@ -1,4 +1,4 @@
- name: C++ CI
+  name: C++ CI
 
    on:
      push:
@@ -19,4 +19,6 @@
            run: make
          - name: Run the application
            run: ./main
+         - name: Create distribution tarball
+           run: make dist
    
