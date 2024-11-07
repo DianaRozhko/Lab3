@@ -1,0 +1,22 @@
+ name: C++ CI
+
+   on:
+     push:
+       branches:
+         - branchMake
+     pull_request:
+       branches:
+         - branchMake
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Install dependencies
+           run: sudo apt update && sudo apt install -y g++
+         - name: Build the application
+           run: make
+         - name: Run the application
+           run: ./main
+   
