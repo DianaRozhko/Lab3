@@ -1,0 +1,29 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches:
+      - branchAutoTest
+  pull_request:
+    branches:
+      - branchAutoTest
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential automake autoconf
+
+      - name: Build project
+        run: |
+          autoreconf --install
+          ./configure
+          make
+
+      - name: Run unit tests
+        run: make check
