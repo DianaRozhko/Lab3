@@ -1,24 +1,19 @@
 name: C++ CI
 
 on:
-     push:
-       branches:
-         - branchMake
-     pull_request:
-       branches:
-         - branchMake
+  push:
+    branches:
+      - branchMake
+  pull_request:
+    branches:
+      - branchMake
 
 jobs:
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v2
-         - name: Install dependencies
-           run: sudo apt update && sudo apt install -y g++
-         - name: Build the application
-           run: make
-         - name: Run the application
-           run: ./main
-         - name: Create distribution tarball
-           run: make dist
-   
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build with Makefile
+      run: |
+        make
